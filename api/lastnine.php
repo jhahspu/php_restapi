@@ -30,16 +30,9 @@ if($num > 0) {
     extract($row);
     $mvs_item = array(
       'id' => $id,
-      'tmdb_id' => $tmdb_id,
       'title' => $title,
       'tagline' => $tagline,
-      'release_date' => $release_date,
-      'runtime' => $runtime,
-      'genres' => $genres,
-      'overview' => $overview,
-      'poster' => $poster,
-      'backdrop' => $backdrop,
-      'trailers' => $trailers
+      'backdrop' => $backdrop
     );
     // Dump data into reults array
     array_push($mvs_arr, $mvs_item);

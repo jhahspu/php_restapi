@@ -9,6 +9,7 @@ class Mvs {
   public $id;
   public $title;
   public $tagline;
+  public $backdrop;
 
   // Constructor with DB
   public function __construct($db) {

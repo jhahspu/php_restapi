@@ -35,7 +35,7 @@
   }
 
   const mvs = document.querySelector('#mvs');
-  
+
   data = getMovies().then(res => {
     addToMvs(res);
   });
@@ -48,6 +48,7 @@
           <div class="mv-id">${movie.id}</div>
           <div class="mv-title">${movie.title}</div>
           <div class="mv-tagline">${movie.tagline}</div>
+          <div class="mv-tagline">${movie.backdrop}</div>
         </div>
       `;
       html += mv;
