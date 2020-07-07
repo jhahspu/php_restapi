@@ -15,7 +15,7 @@ $db = $database->connect();
 $mvs = new Mvs($db);
 
 // Movies query last nine movies
-$result = $mvs->lastNine();
+$result = $mvs->recent();
 
 // Get row count
 $num = $result->rowCount();
@@ -32,6 +32,7 @@ if($num > 0) {
       'id' => $id,
       'title' => $title,
       'tagline' => $tagline,
+      'release_date' => $release_date,
       'backdrop' => $backdrop
     );
     // Dump data into reults array

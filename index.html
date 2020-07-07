@@ -3,59 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
   <title>Rest API</title>
-
-
-  <style>
-    *, *::before, *::after {margin: 0; padding: 0; box-sizing: border-box;}
-    :root {font-size: 16px; font-family: sans-serif;}
-    .container {max-width: 80%; margin: auto;}
-    #mvs {padding: 1rem; display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem;}
-    .mv {border: 1px solid gray;}
-  </style>
-
 </head>
+
 <body>
-<div class="container">
-  <h1>Consuming The Rest API</h1>
 
-  <br>
-  <br>
-  <br>
-  <h3>Recent Movies</h3>
+  <div class="container">
+    <h1>Consuming The Rest API</h1>
+    <br><br>
 
-  <div id="mvs">
+    <h3>Recent Movies</h3>
+    <div id="recent" class="row"></div>
+    <br>
+
+    <h3>One Movie</h3>
+    <div id="single" class="row"></div>
+    <br>
 
   </div>
-</div>
-<script>
-  const getMovies = async() => {
-    const res = await fetch('./api/recent.php');
-    return res.json();
-  }
 
-  const mvs = document.querySelector('#mvs');
 
-  data = getMovies().then(res => {
-    addToMvs(res);
-  });
 
-  const addToMvs = (movies => {
-    let html = '';
-    movies.forEach(movie => {
-      const mv = `
-        <div class="mv">
-          <div class="mv-id">${movie.id}</div>
-          <div class="mv-title">${movie.title}</div>
-          <div class="mv-tagline">${movie.tagline}</div>
-          <div class="mv-tagline">${movie.backdrop}</div>
-        </div>
-      `;
-      html += mv;
-    });
-    mvs.innerHTML = html;
-  });
-  
-</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="app.js"></script>
+
+
 </body>
 </html>
