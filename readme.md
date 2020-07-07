@@ -1,4 +1,4 @@
-# PHP OOP REST API for TGM
+# PHP REST API
 
-## Ph01
+## Phase 1
 - create basic rest api with a read method

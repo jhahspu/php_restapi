@@ -4,8 +4,8 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include_once '../cfg/db.php';
-include_once '../mod/mvs.php';
+include_once '../database/database.php';
+include_once '../modules/mvs.php';
 
 // Instantiate DB & connect
 $database = new Database();
