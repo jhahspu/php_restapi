@@ -1,4 +1,5 @@
 # PHP REST API
+### prototype for topgoodmovies.com
 
 ## Phase 1 - create basic rest api - done
 - create basic rest api with a read method
