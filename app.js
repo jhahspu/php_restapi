@@ -118,6 +118,46 @@ const addToTitleSearch = (movies => {
 
 
 
+
+
+// Search Movie by title in JSON
+const btnSearchByTitleInJSON = document.querySelector('#searchByTitleInJSON');
+const intmdbjson = document.querySelector('#intmdbjson');
+btnSearchByTitleInJSON.addEventListener('click', () => {
+  let mtitle = document.getElementById('j-title').value;
+  fetch('movie_ids.json')
+  .then(response => response.json())
+  .then(data => {
+    let movie = data.find(el => el.original_title.toLowerCase() === mtitle.toLowerCase());
+    searchTMDB(movie.id).then(res => {
+      const mv = `
+          <div class="col s12 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src="https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${res.backdrop_path}">
+                <span class="card-title">
+                  <small>(${res.id})</small>
+                  ${res.title}
+                  <small>(${parseInt(res.release_date)})</small>
+                </span>
+              </div>
+              <div class="card-content">
+                <p>${res.tagline}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        intmdbjson.innerHTML = mv;
+    });
+  });
+});
+const searchTMDB = async (mid) => {
+  const res = await fetch(`https://api.themoviedb.org/3/movie/${mid}?api_key=7bd6103aa1e999a4a580b5b15843628a&language=en-US`);
+  return res.json();
+}
+
+
+
 // DOCUMENT READY
 document.addEventListener('DOMContentLoaded', function() {
   getRecent().then(res => addToRecent(res));

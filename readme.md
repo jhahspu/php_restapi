@@ -13,10 +13,11 @@
 
 ## Phase 4 - insert one based on tMDb id - ToDo
 - using movies list from tMDb select id by title and insert
+a. search tmdb movies json list by title and output result - PARTIALLY DONE
 
 ## Phase 5 - update - ToDo
 - update
 
 ## Phase 6 - delete? - ToDo
-- delete or not ?
+- needed ?
 
