@@ -35,9 +35,18 @@ const addToRecent = (movies => {
 
 // GET SINGLE Phase 2 => hardcoded id
 const mSingle = document.querySelector('#single');
-const getSingle = async() => {
-  const res = await fetch('./api/single.php?id=434');
-  return res.json();
+const btnSearchById = document.querySelector('#searchById');
+btnSearchById.addEventListener('click', () => {
+  let mid = document.getElementById('m-id').value;
+  if (!(mid < 128 || mid > 1674)) {
+    getSingle(mid).then( res => addToSingle(res));
+  } else {
+    alert("value must be between 128 and 1674");
+  }
+});
+const getSingle = async(mid) => {
+    const res = await fetch(`./api/single.php?id=${parseInt(mid)}`);
+    return res.json();
 }
 const addToSingle = (movie => {
   const mv = `
@@ -67,6 +76,5 @@ const addToSingle = (movie => {
 // DOCUMENT READY
 document.addEventListener('DOMContentLoaded', function() {
   getRecent().then(res => addToRecent(res));
-  getSingle().then(res => addToSingle(res));
 
 });
