@@ -73,6 +73,46 @@ const addToSingle = (movie => {
 
 
 
+// Get Movie by Title
+const bytitle = document.querySelector('#bytitle');
+const btnSearchByTitle = document.querySelector('#searchByTitle');
+btnSearchByTitle.addEventListener('click', () => {
+  let mtitle = document.getElementById('m-title').value;
+  if (mtitle) {
+    getMovieByTitle(mtitle).then( res => addToTitleSearch(res));
+  }
+});
+const getMovieByTitle = async(mtitle) => {
+  const res = await fetch(`./api/title.php?title=${mtitle}`);
+  return res.json();
+}
+const addToTitleSearch = (movies => {
+  let html = '';
+  movies.forEach(movie => {
+    const mv = `
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-image">
+            <img src="https://image.tmdb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop}">
+            <span class="card-title">
+              <small>(${movie.id})</small>
+              ${movie.title}
+              <small>(${parseInt(movie.release_date)})</small>
+            </span>
+          </div>
+          <div class="card-content">
+            <p>${movie.tagline}</p>
+          </div>
+        </div>
+      </div>
+    `;
+    html += mv;
+  });
+  bytitle.innerHTML = html;
+});
+
+
+
 // DOCUMENT READY
 document.addEventListener('DOMContentLoaded', function() {
   getRecent().then(res => addToRecent(res));

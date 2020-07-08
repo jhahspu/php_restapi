@@ -46,4 +46,15 @@ class Mvs {
     $this->backdrop = $row['backdrop'];
   }
 
+  // Get movie by title
+  public function getByTitle($mtitle) {
+    // Create query
+    $query = "SELECT * FROM $this->table WHERE title LIKE '%$mtitle%'";
+    // Prepare statemnt
+    $stmt = $this->conn->prepare($query);
+    // Execute query
+    $stmt->execute();
+    return $stmt;
+  }
+
 }
