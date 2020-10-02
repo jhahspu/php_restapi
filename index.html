@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
   <title>Rest API</title>
@@ -13,45 +11,37 @@
 
 <body>
 
-  <div class="container">
-    <h1>Consuming The Rest API</h1>
-    <br><br>
+  <div id="bg"></div>
 
-    <h3>Recent Movies</h3>
-    <div id="recent" class="row"></div>
-    <br>
+  <main>
 
-    <h3>Search Movie by ID</h3>
-    <div class="row">
-      <input class="col s4 offset-s3" type="number" id="m-id" name="m-id">
-      <button id="searchById" class="btn">Search</button>
-    </div>
-    <div id="single" class="row"></div>
-    <br>
+    <section class="intro">
+      <h1>Top Good Movies</h1>
+      <h2>Best movie suggestions on the internet</h2>
+    </section>
 
-    <h3>Search Movies by Title</h3>
-    <div class="row">
-      <input class="col s4 offset-s3" type="text" id="m-title" name="m-title">
-      <button id="searchByTitle" class="btn">Search</button>
-    </div>
-    <div id="bytitle" class="row"></div>
-    <br>
+    <section class="landing">
 
+      <div class="options">
+        <select name="sel" id="sel">
+          <option value="any">any</option>
+          <option value="action">action</option>
+          <option value="adventure">adventure</option>
+          <option value="animation">animation</option>
+        </select>
 
-    <h3>Search Movies by title to insert into DB</h3>
-    <div class="row">
-      <input class="col s4 offset-s3" type="text" id="j-title" name="j-title">
-      <button id="searchByTitleInJSON" class="btn">Search</button>
-    </div>
-    <div id="intmdbjson" class="row"></div>
+        <button id="rnd-btn">action</button>
+      </div>
 
-  </div>
+      <div id="cards"></div>
+      
+
+    </section>
+
+  </main>
+  
 
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="app.js"></script>
-
-
 </body>
 </html>

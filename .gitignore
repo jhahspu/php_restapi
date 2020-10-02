@@ -1,1 +1,8 @@
 movie_ids.json
+*.jpg
+*.jpeg
+*.js
+*.html
+*.scss
+*.css
+*.css.map

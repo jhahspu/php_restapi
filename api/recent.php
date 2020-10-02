@@ -4,8 +4,10 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include_once '../database/database.php';
-include_once '../modules/mvs.php';
+// database connection
+include_once 'database.php';
+// mvs modules
+include_once 'mvs.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -33,7 +35,7 @@ if($num > 0) {
       'title' => $title,
       'tagline' => $tagline,
       'release_date' => $release_date,
-      'backdrop' => $backdrop
+      'poster' => $poster
     );
     // Dump data into reults array
     array_push($mvs_arr, $mvs_item);

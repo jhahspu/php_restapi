@@ -4,8 +4,10 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include_once '../database/database.php';
-include_once '../modules/mvs.php';
+// database connection
+include_once 'database.php';
+// mvs modules
+include_once 'mvs.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -14,12 +16,9 @@ $db = $database->connect();
 // Instantiate Mvs obj
 $mvs = new Mvs($db);
 
-// Movies query last nine movies
-$mvs->title = isset($_GET['title']) ? $_GET['title'] : die();
-
-$temp = $_GET['title'];
-// Get movie
-$result = $mvs->getByTitle($temp);
+// Check if genre is set and get random movies
+isset($_GET['genre']) ? $temp = $_GET['genre'] : $temp = "";
+$result = $mvs->getRnd($temp);
 
 // Get row count
 $num = $result->rowCount();
@@ -35,7 +34,6 @@ if($num > 0) {
     $mvs_item = array(
       'id' => $id,
       'title' => $title,
-      'tagline' => $tagline,
       'release_date' => $release_date,
       'poster' => $poster
     );

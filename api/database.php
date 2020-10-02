@@ -1,7 +1,10 @@
 <?php
 
   // DB credentials
+  // LOCAL
   require_once("../../acc/acc.php");
+  // LIVE
+  // require_once("../../../acc/acc.php");
 
 
   class Database {
@@ -15,6 +18,7 @@
     private $conn;
 
     public function connect() {
+      // local or live
       $this->dbcred = dbDet("local");
       $this->hostname = $this->dbcred[0];
       $this->dbname = $this->dbcred[1];

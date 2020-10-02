@@ -4,8 +4,10 @@
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 
-include_once '../database/database.php';
-include_once '../modules/mvs.php';
+// database connection
+include_once 'database.php';
+// mvs modules
+include_once 'mvs.php';
 
 // Instantiate DB & connect
 $database = new Database();
@@ -23,10 +25,16 @@ $mvs->getOne();
 // Array
 $mvs_arr = array(
   'id' => $mvs->id,
+  'tmdb_id' => $mvs->tmdb_id,
   'title' => $mvs->title,
   'tagline' => $mvs->tagline,
   'release_date' => $mvs->release_date,
-  'backdrop' => $mvs->backdrop
+  'runtime' => $mvs->runtime,
+  'genres' => $mvs->genres,
+  'overview' => $mvs->overview,
+  'poster' => $mvs->poster,
+  'backdrop' => $mvs->backdrop,
+  'trailers' => $mvs->trailers
 );
 
 // Print array in JSON format
